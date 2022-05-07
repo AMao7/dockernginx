@@ -1,0 +1,18 @@
+version: '2'
+services:
+  app:
+    image: nginx
+    hostname: app
+    volumes:
+    - /c/Users/abdim/Documents/docker/nginxreverseproxy/example1/.:/usr/share/nginx/html
+  secondapp:
+    image: nginx
+    hostname: secondapp
+    volumes:
+    - /c/Users/abdim/Documents/docker/nginxreverseproxy/example2/.:/usr/share/nginx/html
+  proxy:
+    build: proxy/
+    ports:
+    - 8080:8080
+    - 443:443
+
